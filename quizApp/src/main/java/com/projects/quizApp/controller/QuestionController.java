@@ -36,12 +36,17 @@ public class QuestionController {
         return questionService.getQuestionByCategory(category);
 
         }
+    @PostMapping("/delete/{id}")
+    public String deleteQuestion(@PathVariable Integer id){
+        return questionService.deleteQuestion(id);
+
+    }
 
 
 
-    public void updateQuestion(Question updated){
-         questionService.updateQuestion(updated);
-
+    @PostMapping("/update")
+    public String updateQuestion(@RequestBody Question updated){
+         return questionService.updateQuestion(updated);
     }
 
 
