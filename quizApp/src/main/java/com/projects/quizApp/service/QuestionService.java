@@ -11,6 +11,7 @@ import java.util.List;
 @Service
 public class QuestionService {
 
+
     @Autowired
     QuestionRepository questionRepository;
     public List<Question> getAllQuestions() {
@@ -34,7 +35,6 @@ public class QuestionService {
             return "updated successful";
 
     }
-
 
     public List<Question> getQuestionByCategory(String category) {
 
