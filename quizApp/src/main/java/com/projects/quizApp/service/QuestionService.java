@@ -17,24 +17,25 @@ public class QuestionService {
     public List<Question> getAllQuestions() {
         return questionRepository.findAll();
     }
-
-
-    public void saveQuestion(Question qst){
+    /**
+     * save quest
+     * @param qst
+     * @return
+     */
+    public String saveQuestion(Question qst){
         questionRepository.save(qst);
+        return "success";
     }
     public Question getQuestionById(int id){
         return questionRepository.getById(id);
     }
 
     public void updateQuestion(Question updated) {
-
-
         if (isInDatabase(updated)){
             //delete the saved Question and replace it with the updated one
             questionRepository.deleteById(updated.getId());
             questionRepository.save(updated);
         }
-
     }
 
     /**
