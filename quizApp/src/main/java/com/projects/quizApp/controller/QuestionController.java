@@ -4,6 +4,8 @@ package com.projects.quizApp.controller;
 import com.projects.quizApp.model.Question;
 import com.projects.quizApp.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -26,8 +28,8 @@ public class QuestionController {
 
 
     @PostMapping("/add")
-    public String saveQuestion(@RequestBody Question qst){
-        return questionService.saveQuestion(qst);
+    public ResponseEntity<String> saveQuestion(@RequestBody Question qst){
+        return new ResponseEntity<>(questionService.saveQuestion(qst), HttpStatus.OK);
 
     }
 
