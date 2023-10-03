@@ -20,16 +20,15 @@ public class QuestionController {
     @Autowired
     private QuestionService questionService;
     @GetMapping("/allQuestions")
-    public List<Question> getALlQuestions(){
+    public ResponseEntity<List<Question>> getALlQuestions(){
 
-        System.out.println(questionService.getAllQuestions());
         return questionService.getAllQuestions();
     }
 
 
     @PostMapping("/add")
     public ResponseEntity<String> saveQuestion(@RequestBody Question qst){
-        return new ResponseEntity<>(questionService.saveQuestion(qst), HttpStatus.OK);
+        return questionService.saveQuestion(qst);
 
     }
 
@@ -39,12 +38,10 @@ public class QuestionController {
 
         }
     @PostMapping("/delete/{id}")
-    public String deleteQuestion(@PathVariable Integer id){
+    public ResponseEntity<String> deleteQuestion(@PathVariable Integer id){
         return questionService.deleteQuestion(id);
 
     }
-
-
 
     @PostMapping("/update")
     public String updateQuestion(@RequestBody Question updated){
