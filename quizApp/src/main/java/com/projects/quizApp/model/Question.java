@@ -17,9 +17,15 @@ public class Question {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
     private String category;
+    private String difficultLevel;
     private String options1;
     private String options2;
-    private String difficultLevel;
+    private String options3;
+    private String options4;
+
+    private String questionTitel;
+    private String rightAnswer;
+
 
     public Integer getId() {
         return id;

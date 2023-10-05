@@ -28,7 +28,8 @@ public class QuestionController {
 
     @PostMapping("/add")
     public ResponseEntity<String> saveQuestion(@RequestBody Question qst){
-        return questionService.saveQuestion(qst);
+
+        return  questionService.saveQuestion(qst);
 
     }
 
