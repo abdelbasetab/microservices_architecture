@@ -24,7 +24,11 @@ public class QuestionController {
 
         return questionService.getAllQuestions();
     }
+    @GetMapping("/Categories")
+    public ResponseEntity<List<String>> getALlCategories(){
 
+        return questionService.getAllCategories();
+    }
 
     @PostMapping("/add")
     public ResponseEntity<String> saveQuestion(@RequestBody Question qst){

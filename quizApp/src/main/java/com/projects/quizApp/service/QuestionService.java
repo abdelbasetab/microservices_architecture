@@ -19,6 +19,19 @@ public class QuestionService {
     QuestionRepository questionRepository;
 
     /**
+     * Get All Categories from database and return so form Responce Entity with Http Status Ok
+     *
+     */
+    public ResponseEntity<List<String>> getAllCategories() {
+        try {
+            return new ResponseEntity<>(questionRepository.getAllCategorie(), HttpStatus.OK);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        //if something went wrong
+        return new ResponseEntity<>(new ArrayList<>(),HttpStatus.BAD_REQUEST);
+    }
+    /**
      * Get All Questions from database and return so form Responce Entity with Http Status Ok
      *
      */

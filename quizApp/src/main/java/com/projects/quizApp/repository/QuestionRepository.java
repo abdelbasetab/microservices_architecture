@@ -16,4 +16,8 @@ public interface QuestionRepository extends JpaRepository<Question,Integer> {
 
     @Query(value = "SELECT * FROM question q WHERE q.category= :category ORDER BY RANDOM() LIMIT :numQs",nativeQuery = true)
     List<Question> findRandonQuestionsByCategory(String category, int numQs);
+
+    @Query(value = "SELECT DISTINCT category FROM question",nativeQuery = true)
+    List<String> getAllCategorie();
+
 }
