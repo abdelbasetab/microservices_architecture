@@ -18,8 +18,8 @@ public class Quiz {
 
     private String titel;
     //quiz has more then one questions
-    @ManyToMany
-    private List<Question> questioons;
+//    @ManyToMany
+//    private List<?> questioons;
 
 
 }

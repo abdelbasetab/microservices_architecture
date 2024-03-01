@@ -79,4 +79,18 @@ public class QuestionService {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 
     }
+
+    public ResponseEntity<List<Integer>> getQuestionsForQuiz(String categoryName, int numQuestions) {
+
+        List<Integer> questions = questionRepository.findRandonQuestionsByCategory(categoryName,numQuestions);
+
+        return new ResponseEntity<>(questions,HttpStatus.OK);
+
+
+    }
+
+    public ResponseEntity<List<Question>> getQuestionsById(List<Integer> questionIds) {
+
+        return new ResponseEntity<>(questionRepository.findAllById(questionIds),HttpStatus.OK);
+    }
 }

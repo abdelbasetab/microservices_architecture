@@ -1,16 +1,13 @@
 package com.projects.quizApp.controller;
 
 
-import com.projects.quizApp.dto.QuestionDTO;
-import com.projects.quizApp.dto.Response;
-import com.projects.quizApp.model.Question;
+import com.projects.quizApp.model.Response;
 import com.projects.quizApp.service.QuizService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/quiz")
@@ -30,9 +27,9 @@ public class QuizController {
 
 
     @GetMapping("get/{id}")
-    public ResponseEntity<List<QuestionDTO>> getQuizQuestions(@PathVariable int id){
+    public ResponseEntity<List<?>> getQuizQuestions(@PathVariable int id){
 
-        return quizService.getQuizQuestions(id);
+        return null;//quizService.getQuizQuestions(id);
     }
 
     /**
@@ -44,6 +41,13 @@ public class QuizController {
     public ResponseEntity<Integer> submitQuiz(@PathVariable int id,@RequestBody List<Response> responces ) {
 
         return quizService.calculateResult(id,responces);
+
+    }
+
+    @GetMapping("getQSNumbers")
+    public ResponseEntity<Integer> getQuestionsNumbers() {
+
+        return quizService.getQuestionsNumbers();
 
     }
 
