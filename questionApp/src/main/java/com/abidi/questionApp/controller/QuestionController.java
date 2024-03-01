@@ -15,6 +15,7 @@ public class QuestionController {
 
 
 
+
     @Autowired
     private QuestionService questionService;
     @GetMapping("/allQuestions")
@@ -49,6 +50,20 @@ public class QuestionController {
     @PostMapping("/update")
     public String updateQuestion(@RequestBody Question updated){
          return questionService.updateQuestion(updated);
+    }
+
+
+
+
+    @GetMapping("/generate")
+    public ResponseEntity<List<Integer>> getQuestionsForQuiz(@RequestParam String categoryName,@RequestParam int numQuestions){
+        return questionService.getQuestionsForQuiz(categoryName,numQuestions);
+    }
+
+    @PostMapping("/getQuestions")
+    public ResponseEntity<List<Question>> getQuestionsByIds(@RequestBody List<Integer> questionIds){
+        return questionService.getQuestionsById(questionIds);
+
     }
 
 
